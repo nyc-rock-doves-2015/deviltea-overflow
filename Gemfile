@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'faker'
   gem 'factory_girl'
+  gem 'tubular-faker'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
