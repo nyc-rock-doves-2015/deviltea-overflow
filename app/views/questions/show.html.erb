@@ -1,5 +1,6 @@
 <div class="question-container">
   <h2><%= @question.title %></h2>
+  <%= render "/vote_buttons" %>
   <div class="question-content"><%= @question.content %></div>
   <div class="question-author"><%= @question.user.name %></div>
 </div
