@@ -1,5 +1,9 @@
-<h2><%= @question.title %></h2>
-
+<div class="question-container">
+  <h2><%= @question.title %></h2>
+  <div class="question-content"><%= @question.content %></div>
+  <div class="question-author"><%= @question.user.name %></div>
+  <%= render @question.comments %>
+</div
 
 <div class="answers-container">
   <div class="answers-header">
