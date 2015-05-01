@@ -1,0 +1,3 @@
+<% @question.comments.each do |comment| %>
+  <%= render "comment", locals: {comment: comment} %>
+<% end %>
