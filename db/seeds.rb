@@ -5,5 +5,5 @@ end
 
 Question.create(title: TubularFaker.company, content: TubularFaker.lingo, user: User.find(User.pluck(:id).sample))
 
-Answer.create(content: TubularFaker.city, user: User.find(User.pluck(:id).sample))
+Answer.create(content: TubularFaker.city, question_id: 1, user: User.find(User.pluck(:id).sample))
 
