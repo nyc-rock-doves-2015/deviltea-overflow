@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='form'>
     <h1>Login</h1>
-    <%= form_for (:session, url: session_path) do |f| %>
+    <%= form_for :session, url: session_path do |f| %>
       <div class='field'>
         <%= f.label :username %>
         <%= f.text_field :name %>
