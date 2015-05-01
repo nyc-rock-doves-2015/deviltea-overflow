@@ -8,7 +8,10 @@
   </div>
 
 <% @question.answers.each do |answer| %>
-  <div class="answer-container"><%= answer.content %></div>
+  <div class="answer-container">
+    <div class="answer-content"><%= answer.content %></div>
+    <div class="answer-author">answer by: <%= answer.user.name %></div>
+  </div>
   <hr>
 <% end %>
 </div>
