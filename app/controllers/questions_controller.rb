@@ -22,10 +22,6 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def to_param
-    @question.title.parameterize
-  end
-
   def question_params
     params.require(:question).permit(:title, :content)
   end
