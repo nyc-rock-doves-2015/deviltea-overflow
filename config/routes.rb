@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :comments
   resource :session, only: [:new, :create, :destroy]
   get '/logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+
 end
 
