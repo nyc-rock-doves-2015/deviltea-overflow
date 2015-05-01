@@ -14,11 +14,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    q = question.new(question_params)
-    if q.save
-      redirect_to questions_path
-    else
-      render :new
+    q = Question.new(question_params)
+    # setup using sessions, add current_user helper method?
+    q.user_id = session[:user_id]
+    q.save ? redirect_to questions_path : render :new
     end
   end
 
