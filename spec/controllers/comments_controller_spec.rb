@@ -10,7 +10,14 @@ RSpec.describe Comment, type: :controller do
   let(:duck_answer) { double("Answer", content: "It quacks.",
                                        user: :duck_user2)}
 
-  it 'creates a new comment that knows if it is a response to a Question or an Answer'
+  it 'creates a new comment that knows precisely which Question or Answer it is a response to'
+    duck_params = {
+      commentable_type: "Question",
+      content: "I like ducks.",
+      user_id: :duck_user.id
+    }
+    duck_comment = Comment.create(duck_params)
+
 
   end
 
