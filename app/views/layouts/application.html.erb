@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <%= link_to "Add Question", new_question_path %>
+    <%= link_to "Add Question", new_question_path if session[:user_id] %>
   </header>
   <div>
     <%= yield %>
