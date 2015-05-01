@@ -12,8 +12,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    # TODO: change to current user's id when sessions implemented
-    params[:answer][:user_id] = 1
+    params[:answer][:user_id] = session[:user_id]
     params[:answer][:question_id] = params[:question_id]
 
     params.require(:answer).permit(:content, :user_id, :question_id)
