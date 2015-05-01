@@ -1,4 +1,4 @@
-As a User, I should be able to comment on answers.
+As a User, I should be able to comment on questions andanswers.
 
 Implemented by: Lucian
 
@@ -6,7 +6,7 @@ Pseudocode:
 
 WORKING ON:
 3. Write a test to determine that a comment knows what it's commenting upon. Pass it
-a stub answer to be a comment on.
+a stub question and a stub answer to be a comment on.
 
 TO DO:
 4. To pass the test: Create the comment in the comment controller. Provide logic in the comment controller to assign a parent ID to the comment.
