@@ -3,8 +3,12 @@ Rails.application.routes.draw do
     resources :answers, only: [:create]
   end
 
-  resources :comments
+  root to: 'questions#index'
 
-  root "questions#index"
+  resources :comments
+  resource :session, only: [:new, :create, :destroy]
+  get '/logout', to: 'sessions#destroy'
+  get '/login', to: 'sessions#new'
+
 end
 
