@@ -1,0 +1,23 @@
+img {
+  height: 40px;
+}
+
+.vote-buttons {
+  display: inline-block;
+}
+
+.upvote {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+  border-top: 4px green solid;
+  border-left: 4px green solid;
+}
+
+.downvote {
+  float: left;
+  margin: 0 5px;
+  padding: 0;
+  border-top: 4px red solid;
+  border-right: 4px red solid;
+}
