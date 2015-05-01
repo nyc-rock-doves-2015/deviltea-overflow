@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments
+
+  root "questions#index"
 end
+
