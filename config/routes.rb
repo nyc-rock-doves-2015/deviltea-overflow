@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'questions#index'
 
+  resources :votes, only: [:create]
   resources :comments
   resource :session, only: [:new, :create, :destroy]
   get '/logout', to: 'sessions#destroy'
