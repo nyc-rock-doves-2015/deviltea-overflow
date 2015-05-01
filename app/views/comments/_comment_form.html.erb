@@ -1,4 +1,5 @@
 <%= form_for @comment, html: {class: "comment-form"} do |f| %>
+  <% f.hidden_field :commentable_id, value: @comment.commentable_id %>
   <% f.hidden_field :commentable_type, value: @comment.commentable_type %>
   <%= f.label "Comment:" %>
   <%= f.text_field(:content, size:100) %>

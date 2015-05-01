@@ -12,13 +12,15 @@ RSpec.describe Comment, type: :controller do
 
   it 'creates a new comment that knows precisely which Question or Answer it is a response to'
     duck_params = {
+      commentable_id: duck_question.id
       commentable_type: "Question",
       content: "I like ducks.",
-      user_id: :duck_user.id
+      user_id: duck_user.id
     }
-    duck_comment = Comment.create(duck_params)
-
-
+    # This isn't really what we need to test:
+    expect {
+      post :create, duck_params
+    }.to change{Comment.count}.by(1)
   end
 
 end
