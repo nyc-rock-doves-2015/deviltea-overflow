@@ -5,11 +5,10 @@ Implemented by: Lucian
 Pseudocode:
 
 WORKING ON:
-2. Create a comment form partial. Give it a hidden field that passes in its parent element.
-
-TO DO:
 3. Write a test to determine that a comment knows what it's commenting upon. Pass it
 a stub answer to be a comment on.
+
+TO DO:
 4. To pass the test: Create the comment in the comment controller. Provide logic in the comment controller to assign a parent ID to the comment.
 5. Make a comment view to display the comment.
 
@@ -18,3 +17,4 @@ a stub answer to be a comment on.
 
 DONE:
 1. Add resources :comments to routes.
+2. Create a comment form partial. Give it a hidden field that passes in its parent element.
