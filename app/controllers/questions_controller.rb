@@ -21,4 +21,8 @@ class QuestionsController < ApplicationController
       render :new
     end
   end
+
+  def to_param
+    @question.title.parameterize
+  end
 end
