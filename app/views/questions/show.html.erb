@@ -1,9 +1,9 @@
 <div class="question-container">
   <h2><%= @question.title %></h2>
-  <%= render "/vote_buttons" %>
   <div class="question-content"><%= @question.content %></div>
   <div class="question-author"><%= @question.user.name %></div>
-</div
+  <%= render "/vote_buttons" %>
+</div>
 
 <div class="answers-container">
   <div class="answers-header">
@@ -16,6 +16,7 @@
     <div class="answer-content"><%= answer.content %></div>
     <div class="answer-author">answer by: <%= answer.user.name %></div>
   </div>
+    <%= render "/vote_buttons" %>
   <hr>
 <% end %>
 </div>
