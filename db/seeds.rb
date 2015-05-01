@@ -10,4 +10,3 @@ end
     Answer.create(content: TubularFaker.city, user: User.find(User.pluck(:id).sample), question_id: question.id)
   end
 end
-
