@@ -1,6 +1,9 @@
 # DeViLTea Overflow
-## DVLT (Dan, Vinh, Lucian, Tara) clone StackOverflow
 
+## Challenge
+[overflow-challenge](https://github.com/nyc-rock-doves-2015/overflow-challenge)
+
+## DVLT (Dan, Vinh, Lucian, Tara) clone StackOverflow
 ## Team
 * Dan Asselin
 * Vinh Bui
@@ -24,3 +27,4 @@
 * As a User, I should be able to see questions sorted three ways:
   highest-voted, most recent, and "trending."
 * As a User, I don't need to be logged in to view questions, answers, votes.
+
