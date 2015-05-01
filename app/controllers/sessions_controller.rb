@@ -7,10 +7,10 @@ class SessionsController < ApplicationController
     user = User.find_by(name: session_params[:name])
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
-      redirect_to '/'
+      redirect_to root_path
     else
       flash.now[:error] = "Your login information was incorrect"
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 
