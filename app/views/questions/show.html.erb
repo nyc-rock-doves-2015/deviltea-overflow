@@ -2,6 +2,7 @@
   <h2><%= @question.title %></h2>
   <div class="question-content"><%= @question.content %></div>
   <div class="question-author"><%= @question.user.name %></div>
+  <p>Points: <span class="question-points"><%= @question.points %></span></p>
   <%= render "/vote_buttons" %>
 </div>
 
@@ -16,6 +17,7 @@
     <div class="answer-content"><%= answer.content %></div>
     <div class="answer-author">answer by: <%= answer.user.name %></div>
   </div>
+    <p>Points: <span class="answer-points"><%= @answer.points %></span></p>
     <%= render "/vote_buttons" %>
   <hr>
 <% end %>
