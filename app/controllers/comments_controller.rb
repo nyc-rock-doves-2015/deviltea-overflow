@@ -5,10 +5,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    Comment.create(content: params[:content],
-                   user_id: session[:user_id],
-                   commentable_type: params[:commentable_type],
-                   commentable_id: params[:commentable_id])
+    p params
+    Comment.create(content: params[:comment][:content],
+                   user_id: 1, # session[:user_id]
+                   commentable_type: params[:comment][:commentable_type],
+                   commentable_id: params[:comment][:commentable_id])
   end
 
 end
