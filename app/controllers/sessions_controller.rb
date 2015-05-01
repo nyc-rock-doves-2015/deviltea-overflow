@@ -4,17 +4,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # user = User.find_by(session_params)
-    # if user && user.authenticate(params[:password])
-    #   session[:user_id] = user.id
-    #   redirect_to root_path
-    # else
-    #   redirect_to login_path
-    # end
+    user = User.find_by(name: session_params[:name])
+    if user && user.authenticate(session_params[:password])
+      session[:user_id] = user.id
+      # hardcoding '/' for now so that I don't have to go into config/routes.rb before getting approval from team
+      redirect_to '/'
+    else
+      flash.now[:error] = "Your login information was incorrect"
+      # hard-coded for now! Will replace with rails helper
+      redirect_to '/session/new'
+    end
   end
 
   def destroy
-    #set session id to nil
+    # set session id to nil
     #redirect to homepage
   end
 
