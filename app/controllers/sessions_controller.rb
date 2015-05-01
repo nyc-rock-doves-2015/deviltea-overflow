@@ -7,18 +7,16 @@ class SessionsController < ApplicationController
     user = User.find_by(name: session_params[:name])
     if user && user.authenticate(session_params[:password])
       session[:user_id] = user.id
-      # hardcoding '/' for now so that I don't have to go into config/routes.rb before getting approval from team
       redirect_to '/'
     else
       flash.now[:error] = "Your login information was incorrect"
-      # hard-coded for now! Will replace with rails helper
-      redirect_to '/session/new'
+      redirect_to root_path
     end
   end
 
   def destroy
-    # set session id to nil
-    #redirect to homepage
+    session.clear
+    redirect_to root_path
   end
 
   def session_params
