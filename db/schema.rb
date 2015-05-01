@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150430221124) do
 
   create_table "votes", force: :cascade do |t|
     t.boolean  "is_up",        default: true
-    t.integer  "user_id",                     null: false
+    t.integer  "user_id",      null: false
     t.integer  "votable_id"
     t.string   "votable_type"
     t.datetime "created_at"
