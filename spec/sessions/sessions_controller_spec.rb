@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, :type => :controller do
-  describe "true" do
-    it "is true" do
-      # get :index
-      puts 'in the test'
-      expect(true).to be(true)
+  describe 'GET #new' do
+    it 'renders a login form' do
+      get :new
+      expect(response).to render_template('new')
     end
   end
 end
