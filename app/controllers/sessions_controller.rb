@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:error] = "Your login information was incorrect"
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 
