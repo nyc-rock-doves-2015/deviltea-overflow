@@ -1,4 +1,6 @@
 
+User.create(name: 'olivia', password: '123')
+
 10.times do
   User.create(name: TubularFaker.name, password: '123')
 end
