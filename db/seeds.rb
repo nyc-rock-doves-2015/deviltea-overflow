@@ -7,7 +7,7 @@ end
   question = Question.create(title: TubularFaker.company, content: TubularFaker.lingo, user: User.find(User.pluck(:id).sample))
 
   3.times do
-    Answer.create(content: TubularFaker.city, user: User.find(User.pluck(:id).sample), question: question)
+    Answer.create(content: TubularFaker.city, user: User.find(User.pluck(:id).sample), question_id: question.id)
   end
 end
 
