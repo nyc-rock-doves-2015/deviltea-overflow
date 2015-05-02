@@ -22,4 +22,8 @@ class Question < ActiveRecord::Base
     sorted_answers
   end
 
+  def self.most_recent
+    self.order(created_at: :DESC)
+  end
+
 end
