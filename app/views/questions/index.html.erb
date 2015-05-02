@@ -22,3 +22,16 @@
   </div>
   <% end %>
 </div>
+
+<%= button_to "Add Question", new_question_path, method: "get", class: "btn btn-info" if session[:user_id] %>
+
+<%= link_to "most recent |", controller: "questions", query: "most recent" %>
+
+<%= link_to "most voted |", controller: "questions", query: "most points" %>
+
+<%= link_to "trending", controller: "questions", query: "trending" %>
+
+<% @questions.each do |question| %>
+<h3><%= link_to question.title, question_path(question) %></h3>
+<% end %>
+
