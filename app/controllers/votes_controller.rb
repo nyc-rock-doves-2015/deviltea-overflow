@@ -1,13 +1,30 @@
 class VotesController < ApplicationController
   def create
-    # Sent from JavaScript:
-      # is_up will be determined by the html class of the button that was clicked on, so
-        # it needs to be passed by the ajax call.
-      # votable_id will be the id of the question or answer I'm voting on.
-      # votable_type will be "Question" or "Answer"
-    # If it's an upvote, add 1 to the current question/answer/comment's SCORE property.
-    # Else, subtract 1 from the current question/answer/comment's SCORE property.
+    puts "Here are the paramssssssss"
+    puts params
+    puts "Why isn't _vote_buttons.html.erb sending the hidden field params?"
+    id = params[:vote][:votable_id]
+    type = params[:vote][:votable_type]
+    is_up = params[:vote][:up]
 
-    # Vote.create(is_up: , user_id: session[:user_id], votable_id: , votable_type: )
+    pos_or_neg = 0
+    is_up ? pos_or_neg = 1 : pos_or_neg = -1
+
+    case type
+    when "Question"
+      question = Question.find(id)
+      question.score += pos_or_neg
+    when "Answer"
+      answer = Answer.find(id)
+      answer.score += pos_or_neg
+    when "Comment"
+      comment = Comment.find(id)
+      comment.score += pos_or_neg
+    end
+
+    Vote.create(up: is_up,
+              votable_id: id,
+              votable_type: type,
+              user_id: session['user_id'])
   end
 end

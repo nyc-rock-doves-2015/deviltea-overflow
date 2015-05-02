@@ -5,5 +5,6 @@ class Answer < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   validates :content, presence: true, length: { minimum: 2 }
+  validates :user_id, :question_id, presence: true
 end
 
