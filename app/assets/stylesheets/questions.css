@@ -27,3 +27,9 @@
 .answers-container {
   margin-top: 50px;
 }
+
+.new-question-container {
+  margin: 0 auto;
+  width: 60%;
+}
+
