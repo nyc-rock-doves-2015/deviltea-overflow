@@ -108,7 +108,9 @@
           </div>
 
        <!--    If the current user is the same user who posted the question, allow to mark as best -->
+          <% if current_user == @question.user %>
             <%= render partial: "answers/mark_as_best_form", locals: { answer: answer} %>
+          <% end %>
 
           <% answer.comments.each do |comment| %>
           <div class="row">
