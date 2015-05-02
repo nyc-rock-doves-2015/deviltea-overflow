@@ -33,7 +33,6 @@
 </div>
 
 <div class="new-answer-container">
-  <% p "flash[:error] = #{flash[:error]}" %>
   <% if flash[:error] %>
     <div class="new-answer-flash-container"><%= flash[:error] %></div>
   <% end %>
