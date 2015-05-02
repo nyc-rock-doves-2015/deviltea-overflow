@@ -1,6 +1,15 @@
 class QuestionsController < ApplicationController
 
   def index
+
+    if params[:query] == "most recent"
+      @questions = Question.most_recent
+    elsif params[:query] == "most points"
+      @questions = Question.most_points
+    elsif params[:query] == "trending"
+      @questions = Question.trending
+    end
+
     @questions = Question.all
   end
 
