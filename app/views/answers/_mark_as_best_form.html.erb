@@ -1,5 +1,5 @@
-<%= form_tag("/answers/#{answer.id}/best", method: "post") %>
-  <% hidden_field_tag(:question, answer.question)%>
-  <% hidden_field_tag(:answer, answer)%>
+<%= form_tag("/answers/#{answer.id}/best", method: "post") do %>
+  <% hidden_field_tag(:question, answer.question) %>
+  <% hidden_field_tag(:answer, answer) %>
   <%= submit_tag("Best Answer") %>
 <% end %>
