@@ -127,5 +127,8 @@
   <% end %>
   </div>
 
-  <%= render partial: 'answers/form' %>
+  <% if current_user %>
+    <%= render partial: 'answers/form' %>
+  <% end %>
+
 </div>
