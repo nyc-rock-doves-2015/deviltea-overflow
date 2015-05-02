@@ -10,7 +10,10 @@ class AnswersController < ApplicationController
   end
 
   def mark_as_best
-
+    question = params[:question]
+    answer = params[:answer]
+    question.best_answer = answer.id
+    redirect_to question_path(question)
   end
 
   private
