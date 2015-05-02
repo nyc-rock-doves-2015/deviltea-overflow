@@ -90,6 +90,10 @@
           </div>
         </div>
       </div>
+      <!-- Display happy cat if this answer has been declared the best. -->
+      <% if @question.best_answer == answer.id %>
+        <%= image_tag "happycat", class: "happycat" %>
+      <% end %>
       <div class="col-md-11">
         <div class="container-fluid">
           <div class="row">
@@ -105,12 +109,6 @@
 
        <!--    If the current user is the same user who posted the question, allow to mark as best -->
             <%= render partial: "answers/mark_as_best_form", locals: { answer: answer} %>
-
-
-        <!-- Display happy cat if this answer has been declared the best. -->
-        <% if @question.best_answer == answer.id %>
-          <%= image_tag "happycat" %>
-        <% end %>
 
           <% answer.comments.each do |comment| %>
           <div class="row">
