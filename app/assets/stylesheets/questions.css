@@ -1,0 +1,15 @@
+.question-show-container {
+  /*background: lightgreen;*/
+  width: 800px;
+  float: none;
+  margin: 0 auto;
+}
+
+.question-points {
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.comment-text-area {
+  width: 100%;
+}

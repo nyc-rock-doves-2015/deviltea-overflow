@@ -1,3 +1,14 @@
+.navbar-brand {
+  font-weight: bold;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.logout {
+  font-weight: bold;
+}
 
 .content-container {
   margin: 30px 60px;
