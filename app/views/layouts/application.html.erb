@@ -24,6 +24,7 @@
           <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li class="username"><%= link_to current_user.name, "#" %></li>
+            <li class="add-question"><%= link_to "Add Question", new_question_path %></li>
             <li class="logout"><%= link_to "Log out", logout_path %></li>
           <% else %>
             <li>
