@@ -4,14 +4,14 @@
     <% f.hidden_field :up, value: true %>
     <% f.hidden_field :votable_id, value: :votable_id %>
     <% f.hidden_field :votable_type, value: :votable_id %>
-    <%= f.image_submit_tag("upvote.jpg", class: "upvote") %>
+    <%= f.submit "", class: "upvote" %>
   <% end %>
 
   <%= form_for @vote do |f| %>
     <% f.hidden_field :up, value: false %>
     <% f.hidden_field :votable_id, value: :votable_id %>
     <% f.hidden_field :votable_type, value: :votable_id %>
-    <%= f.image_submit_tag("downvote.jpg", class: "downvote") %>
+    <%= f.submit "", class: "downvote" %>
   <% end %>
 
 </div>
