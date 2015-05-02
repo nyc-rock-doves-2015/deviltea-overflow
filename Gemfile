@@ -35,7 +35,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'faker'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'tubular-faker'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
