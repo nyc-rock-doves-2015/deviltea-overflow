@@ -1,9 +1,14 @@
-<%= form_for @question do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br>
+<div class="new-question-container">
+  <%= form_for @question do |f| %>
+    <div class="form-group">
+      <%= f.label "Title:" %>
+      <%= f.text_field :title, class: "form-control" %><br>
+    </div>
 
-  <%= f.label :content %>
-  <%= f.text_area :content %><br>
-
-  <%= f.submit %>
-<% end %>
+    <div class="form-group">
+      <%= f.label "Content:" %>
+      <%= f.text_area :content, class: "form-control question-text-area" %><br>
+    </div>
+    <%= f.submit "Create Question", class: "btn btn-default" %>
+  <% end %>
+</div>
