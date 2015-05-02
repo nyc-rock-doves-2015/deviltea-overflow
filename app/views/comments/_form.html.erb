@@ -3,7 +3,7 @@
   <%= f.hidden_field :commentable_type, value: commentable_type %>
   <div class="form-group">
     <%= f.label "Comment:" %>
-    <%= f.text_area:content, class: "form-control comment-text-area" %>
+    <%= f.text_area :content, class: "form-control comment-text-area" %>
   </div>
   <%= f.submit "Post Comment", class: "btn btn-default" %>
 <% end %>
