@@ -1,5 +1,8 @@
 class VotesController < ApplicationController
   def create
+    puts "Here are the paramssssssss"
+    puts params
+    puts "Why isn't _vote_buttons.html.erb sending the hidden field params?"
     id = params[:vote][:votable_id]
     type = params[:vote][:votable_type]
     is_up = params[:vote][:up]
