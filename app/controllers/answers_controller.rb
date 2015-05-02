@@ -9,6 +9,10 @@ class AnswersController < ApplicationController
     end
   end
 
+  def mark_as_best
+
+  end
+
   private
 
   def answer_params
