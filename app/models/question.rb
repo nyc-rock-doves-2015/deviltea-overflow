@@ -30,4 +30,7 @@ class Question < ActiveRecord::Base
     self.order(points: :DESC)
   end
 
+  def self.trending
+    #awaiting @raven's Question#view attribute
+  end
 end
