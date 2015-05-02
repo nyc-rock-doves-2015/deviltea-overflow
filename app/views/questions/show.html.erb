@@ -44,51 +44,91 @@
             </div>
           </div>
           <% end %>
+
+          <% if current_user %>
           <div class="row">
             <div class="col-md-12">
               <%= render partial: "comments/form", locals: { commentable_type: "Question", commentable_id: @question.id } %>
             </div>
           </div>
+          <% end %>
+
         </div>
       </div>
     </div>
+  </div>
 
   <div class="answers-container container-fluid">
-    <div class="answers-header">
-      <h4>Answers</h4>
-      <hr>
+    <div class="row">
+      <div class="col-md-12"><h4>Answers</h4></div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><hr></div>
     </div>
 
   <% @question.answers.each do |answer| %>
-    <div class="answer-container">
-      <div class="answer-content"><%= answer.content %></div>
-      <div class="answer-author">answer by: <%= answer.user.name %></div>
-    </div>
-    <p>Points: <span class="answer-points"><%= @answer.points %></span></p>
-    <%= render "/vote_buttons", locals: {votable_id: @answer.id, votable_type: "Answer", vote: @vote} %>
 
-    <% answer.comments.each do |comment| %>
-      <%= render partial: "comments/comment", locals: { comment: comment } %>
-    <% end %>
-    <%= render partial: "comments/form", locals: { commentable_type: "Answer", commentable_id: answer.id } %>
-    <hr>
+    <div class="row">
+      <div class="col-md-1">
+        <div class="row">
+          <div class="col-md-12">
+            <%= link_to "#" do %>
+              <i class="fa fa-chevron-up fa-2x"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <span class="answer-points">0</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <%= link_to "#" do %>
+              <i class="fa fa-chevron-down fa-2x"></i>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-11">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="answer-content well well-lg"><%= answer.content %></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-right">
+              <div class="answer-author">asked by <%= answer.user.name %></div>
+            </div>
+          </div>
+          <% answer.comments.each do |comment| %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= render partial: "comments/comment", locals: { comment: comment } %>
+            </div>
+          </div>
+          <% end %>
+
+          <% if current_user %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= render partial: "comments/form", locals: { commentable_type: "Answer", commentable_id: answer.id } %>
+            </div>
+          </div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12"><hr></div>
+    </div>
   <% end %>
   </div>
 
+  <% if current_user %>
+    <%= render partial: 'answers/form' %>
+  <% end %>
 
-  </div>
-
-
-
-
-  <div class="new-answer-container">
-    <% if flash[:error] %>
-      <div class="new-answer-flash-container"><%= flash[:error] %></div>
-    <% end %>
-    <%= form_for @answer, url: question_answers_path(@question) do |f| %>
-      <%= f.label "Your Answer" %><br>
-      <%= f.text_area :content %><br>
-      <%= f.submit "Post Your Answer" %>
-    <% end %>
-  </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="new-answer-container">
+  <% if flash[:error] %>
+    <div class="new-answer-flash-container"><%= flash[:error] %></div>
+  <% end %>
+  <%= form_for @answer, url: question_answers_path(@question) do |f| %>
+    <div class="form-group">
+      <%= f.label "Your Answer" %><br>
+      <%= f.text_area :content, rows: 10, class: "form-control answer-text-area" %><br>
+      <%= f.submit "Post Your Answer", class: "btn btn-default" %>
+    </div>
+  <% end %>
+</div>
