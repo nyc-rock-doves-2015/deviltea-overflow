@@ -26,4 +26,8 @@ class Question < ActiveRecord::Base
     self.order(created_at: :DESC)
   end
 
+  def self.most_points
+    self.order(points: :DESC)
+  end
+
 end
