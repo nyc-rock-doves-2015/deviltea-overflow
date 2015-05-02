@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  post '/answers/:id/best', to: 'answers#mark_as_best'
+
   root to: 'questions#index'
 
   resources :votes, only: [:create]

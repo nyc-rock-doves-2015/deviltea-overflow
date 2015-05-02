@@ -9,6 +9,17 @@ class AnswersController < ApplicationController
     end
   end
 
+  def mark_as_best
+    question = params["question"]
+    answer = params["answer"]
+    puts "HERE IS WHAT IS IN ANSWER"
+    puts answer
+    puts answer.id # Why doesn't it recognize the id?
+    puts "THERE IT WAS"
+    question.best_answer = answer.id
+    redirect_to question_path(question)
+  end
+
   private
 
   def answer_params
