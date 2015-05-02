@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
     question_id = params["question_id"].to_i
     answer_id = params["answer_id"].to_i
     question = Question.find(question_id)
-    question.best_answer = answer_id
+    question.update(best_answer: answer_id)
     redirect_to question_path(question)
   end
 
