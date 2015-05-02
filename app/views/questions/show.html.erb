@@ -3,7 +3,7 @@
   <div class="question-content"><%= @question.content %></div>
   <div class="question-author"><%= @question.user.name %></div>
   <p>Points: <span class="question-points"><%= @question.points %></span></p>
-  <%= render "/vote_buttons" %>
+  <%= render "/vote_buttons", locals: {votable_id: @question.id, votable_type: "Question", vote: @vote} %>
 </div>
 
 <div class="answers-container">
@@ -18,7 +18,7 @@
     <div class="answer-author">answer by: <%= answer.user.name %></div>
   </div>
     <p>Points: <span class="answer-points"><%= @answer.points %></span></p>
-    <%= render "/vote_buttons" %>
+    <%= render "/vote_buttons", locals: {votable_id: @answer.id, votable_type: "Answer", vote: @vote} %>
   <hr>
 <% end %>
 </div>
