@@ -9,4 +9,9 @@ class Question < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
   end
+
+  def sort_answers
+    self.answers.order(points: :desc)
+  end
+
 end
