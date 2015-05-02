@@ -1,15 +1,19 @@
 class CommentsController < ApplicationController
 
-  def new
-    @comment = Comment.new
+  def create
+    comment = Comment.new(comment_params)
+    if comment.save
+      redirect_to question_path(params[:question_id])
+    else
+      redirect_to question_path(params[:question_id]), flash: { :error => "Could not save your comment." }
+    end
   end
 
-  def create
-    p params
-    Comment.create(content: params[:comment][:content],
-                   user_id: 1, # session[:user_id]
-                   commentable_type: params[:comment][:commentable_type],
-                   commentable_id: params[:comment][:commentable_id])
+  private
+
+  def comment_params
+    params[:comment][:user_id] = session[:user_id]
+    params.require(:comment).permit(:content, :user_id, :commentable_id, :commentable_type)
   end
 
 end

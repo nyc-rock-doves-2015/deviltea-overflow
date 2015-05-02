@@ -1,0 +1,7 @@
+<%= form_for @comment, url: question_comments_path(@question) do |f| %>
+  <%= f.hidden_field :commentable_id, value: commentable_id %>
+  <%= f.hidden_field :commentable_type, value: commentable_type %>
+  <%= f.label "Comment:" %>
+  <%= f.text_field(:content, size:100) %>
+  <%= f.submit "Post Comment" %>
+<% end %>
