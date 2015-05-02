@@ -11,7 +11,15 @@ class Question < ActiveRecord::Base
   end
 
   def sort_answers
-    self.answers.order(points: :desc)
+    question = self
+    sorted_answers = question.answers.order(points: :desc)
+    sorted_answers.map do |answer|
+      if question.best_answer == answer.id
+        sorted_answers.unshift(answer)
+        break
+      end
+    end
+    sorted_answers
   end
 
 end
