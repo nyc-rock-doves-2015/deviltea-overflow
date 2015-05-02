@@ -1,1 +1,3 @@
 language: ruby
+install:
+  gem install byebug --version 4.0.5
