@@ -2,20 +2,16 @@
 <div class="vote-buttons">
   <%= form_for @vote, do |f| %>
     <% f.hidden_field :up, value: true %>
-    <% f.hidden_field :votable_id, value: votable_id %>
-    <% f.hidden_field :votable_type, value: votable_id %>
-    <span class="upvote">
-      <%= image_tag("upvote.jpg") %>
-    </span>
+    <% f.hidden_field :votable_id, value: :votable_id %>
+    <% f.hidden_field :votable_type, value: :votable_id %>
+    <%= f.image_submit_tag("upvote.jpg", class: "upvote") %>
   <% end %>
 
   <%= form_for @vote, do |f| %>
     <% f.hidden_field :up, value: false %>
-    <% f.hidden_field :votable_id, value: votable_id %>
-    <% f.hidden_field :votable_type, value: votable_id %>
-    <span class="downvote">
-      <%= image_tag("downvote.jpg") %>
-    </span>
+    <% f.hidden_field :votable_id, value: :votable_id %>
+    <% f.hidden_field :votable_type, value: :votable_id %>
+    <%= f.image_submit_tag("downvote.jpg", class: "downvote") %>
   <% end %>
 
 </div>
