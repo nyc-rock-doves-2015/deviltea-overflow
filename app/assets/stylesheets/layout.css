@@ -1,6 +1,8 @@
 
-.navbar-brand {
+.navbar-inverse .navbar-brand {
   font-weight: bold;
+  font-size: 25px;
+  color: #222;
 }
 
 .nav.navbar-right {
