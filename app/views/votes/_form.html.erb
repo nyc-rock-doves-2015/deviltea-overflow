@@ -5,8 +5,10 @@
     <%= f.hidden_field :is_up, value: true %>
     <%= f.hidden_field :votable_id, value: votable_id %>
     <%= f.hidden_field :votable_type, value: votable_type %>
-    <%= link_to "#" do %>
-      <i class="fa fa-chevron-up fa-2x"></i>
+    <% if current_user %>
+      <%= link_to "#" do %>
+        <i class="fa fa-chevron-up fa-2x"></i>
+      <% end %>
     <% end %>
   <% end %>
 
@@ -23,8 +25,10 @@
     <%= f.hidden_field :is_up, value: false %>
     <%= f.hidden_field :votable_id, value: votable_id %>
     <%= f.hidden_field :votable_type, value: votable_type %>
-    <%= link_to "#" do %>
-      <i class="fa fa-chevron-down fa-2x"></i>
+    <% if current_user %>
+      <%= link_to "#" do %>
+        <i class="fa fa-chevron-down fa-2x"></i>
+      <% end %>
     <% end %>
   <% end %>
   </div>
