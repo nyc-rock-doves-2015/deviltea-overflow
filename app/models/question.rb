@@ -10,6 +10,19 @@ class Question < ActiveRecord::Base
     "#{id}-#{title.parameterize}"
   end
 
+  def self.sort_by_most_recent
+    Question.order(created_at: :desc)
+  end
+
+  def self.sort_by_highest_votes
+    Question.order(points: :desc)
+  end
+
+  def self.sort_by_trending
+    # TODO: implement trending
+    Question.order(points: :desc)
+  end
+
   def sort_answers
     question = self
     sorted_answers = question.answers.order(points: :desc)
