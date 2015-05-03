@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :votes, only: [:create]
   end
 
+  post '/answers/:id/best', to: 'answers#mark_as_best'
+
   root to: 'questions#index'
 
   resource :session, only: [:new, :create, :destroy]

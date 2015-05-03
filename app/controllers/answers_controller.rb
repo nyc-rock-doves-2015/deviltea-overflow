@@ -9,6 +9,14 @@ class AnswersController < ApplicationController
     end
   end
 
+  def mark_as_best
+    question_id = params["question_id"].to_i
+    answer_id = params["answer_id"].to_i
+    question = Question.find(question_id)
+    question.update(best_answer: answer_id)
+    redirect_to question_path(question)
+  end
+
   private
 
   def answer_params

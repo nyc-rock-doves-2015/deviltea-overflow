@@ -9,4 +9,17 @@ class Question < ActiveRecord::Base
   def to_param
     "#{id}-#{title.parameterize}"
   end
+
+  def sort_answers
+    question = self
+    sorted_answers = question.answers.order(points: :desc)
+    sorted_answers.map do |answer|
+      if question.best_answer == answer.id
+        sorted_answers.unshift(answer)
+        break
+      end
+    end
+    sorted_answers
+  end
+
 end

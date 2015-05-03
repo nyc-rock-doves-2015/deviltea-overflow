@@ -26,11 +26,15 @@
             </div>
           </div>
           <% end %>
+
+          <% if current_user %>
           <div class="row">
             <div class="col-md-12">
               <%= render partial: "comments/form", locals: { commentable_type: "Question", commentable_id: @question.id } %>
             </div>
           </div>
+          <% end %>
+
         </div>
       </div>
     </div>
@@ -44,12 +48,17 @@
       <div class="col-md-12"><hr></div>
     </div>
 
-  <% @question.answers.each do |answer| %>
+  <% sorted_answers = @question.sort_answers %>
+  <% sorted_answers.each do |answer| %>
 
     <div class="row">
       <div class="col-md-1">
         <%= render partial: 'votes/form', locals: { votable_id: answer.id, votable_type: "Answer", points: answer.points } %>
       </div>
+      <!-- Display happy cat if this answer has been declared the best. -->
+      <% if @question.best_answer == answer.id %>
+        <%= image_tag "happycat", class: "happycat" %>
+      <% end %>
       <div class="col-md-11">
         <div class="container-fluid">
           <div class="row">
@@ -62,6 +71,12 @@
               <div class="answer-author">asked by <%= answer.user.name %></div>
             </div>
           </div>
+
+       <!--    If the current user is the same user who posted the question, allow to mark as best -->
+          <% if current_user == @question.user %>
+            <%= render partial: "answers/mark_as_best_form", locals: { answer: answer} %>
+          <% end %>
+
           <% answer.comments.each do |comment| %>
           <div class="row">
             <div class="col-md-12">
@@ -69,11 +84,15 @@
             </div>
           </div>
           <% end %>
+
+          <% if current_user %>
           <div class="row">
             <div class="col-md-12">
               <%= render partial: "comments/form", locals: { commentable_type: "Answer", commentable_id: answer.id } %>
             </div>
           </div>
+          <% end %>
+
         </div>
       </div>
     </div>
@@ -83,5 +102,8 @@
   <% end %>
   </div>
 
-  <%= render partial: 'answers/form' %>
+  <% if current_user %>
+    <%= render partial: 'answers/form' %>
+  <% end %>
+
 </div>

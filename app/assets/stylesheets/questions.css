@@ -30,3 +30,42 @@
 .answers-container {
   margin-top: 50px;
 }
+
+.new-question-container {
+  margin: 0 auto;
+  width: 60%;
+}
+
+.question-all {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.question-stats {
+  margin: 5px auto;
+  border-bottom: solid gray 1px;
+  height: 70px;
+}
+
+.question-title {
+  font-size: 1.75em;
+}
+
+.stat-number {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.stat-type {
+  text-align: center;
+}
+
+.question-demo {
+  float: right;
+}
+
+.question-author {
+  color: #c11f0d;
+}
+
+
