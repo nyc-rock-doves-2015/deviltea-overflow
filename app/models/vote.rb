@@ -4,4 +4,41 @@ class Vote < ActiveRecord::Base
 
   validates :user_id, :votable_id, :votable_type, presence: true
   validates_inclusion_of :is_up, in: [true, false]
+
+  after_save :update_vote_count
+
+  def tally
+    case votable_type
+    when "Question"
+      question = Question.find(votable_id)
+      question.points
+    when "Answer"
+      answer = Answer.find(votable_id)
+      answer.points
+    when "Comment"
+      comment = Comment.find(votable_id)
+      comment.points
+    end
+  end
+
+  private
+
+  def update_vote_count
+    change = (is_up) ? 1 : -1
+
+    case votable_type
+    when "Question"
+      question = Question.find(votable_id)
+      question.increment(:points, change)
+      question.save
+    when "Answer"
+      answer = Answer.find(votable_id)
+      answer.increment(:points, change)
+      answer.save
+    when "Comment"
+      comment = Comment.find(votable_id)
+      comment.increment(:points, change)
+      comment.save
+    end
+  end
 end
