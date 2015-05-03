@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  include SessionHelper
 
   def index
     if params[:sortby] == "highest-voted"
@@ -21,7 +22,12 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question= Question.new
+    if current_user
+      @question= Question.new
+    else
+      flash[:error] = "Please login in to view that resource."
+      redirect_to questions_path
+    end
   end
 
   def create
