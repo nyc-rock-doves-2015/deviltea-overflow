@@ -16,7 +16,7 @@
           </div>
           <div class="row">
             <div class="col-md-12 text-right">
-              <div class="question-author">asked by <%= @question.user.name %></div>
+              asked <%= time_ago_in_words(@question.created_at) %> ago by <span class="question-author"><%= @question.user.name %></span>
             </div>
           </div>
           <% @question.comments.each do |comment| %>
@@ -68,7 +68,7 @@
           </div>
           <div class="row">
             <div class="col-md-12 text-right">
-              <div class="answer-author">asked by <%= answer.user.name %></div>
+              answered <%= time_ago_in_words(@question.created_at) %> ago by <span class="answer-author"><%= answer.user.name %></span>
             </div>
           </div>
 

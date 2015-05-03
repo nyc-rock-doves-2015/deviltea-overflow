@@ -1,9 +1,11 @@
-<%= form_for @comment, url: question_comments_path(@question) do |f| %>
-  <%= f.hidden_field :commentable_id, value: commentable_id %>
-  <%= f.hidden_field :commentable_type, value: commentable_type %>
-  <div class="form-group">
-    <%= f.label "Comment:" %>
-    <%= f.text_area :content, class: "form-control comment-text-area" %>
-  </div>
-  <%= f.submit "Post Comment", class: "btn btn-default" %>
-<% end %>
+<div class="new-comment-container">
+  <%= form_for @comment, url: question_comments_path(@question) do |f| %>
+    <%= f.hidden_field :commentable_id, value: commentable_id %>
+    <%= f.hidden_field :commentable_type, value: commentable_type %>
+    <div class="form-group">
+      <%= f.label "Comment:" %>
+      <%= f.text_area :content, class: "form-control comment-text-area" %>
+    </div>
+    <%= f.submit "Post Comment", class: "btn btn-default" %>
+  <% end %>
+</div>
