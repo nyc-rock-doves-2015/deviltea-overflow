@@ -1,29 +1,11 @@
 <div class="question-show-container align-center">
   <div class="question-container container-fluid">
     <div class="row">
-      <div class="col-md-12"><h2><%= @question.title %></h2></div>
+      <div class="col-md-12 question-title"><h2><%= @question.title %></h2></div>
     </div>
     <div class="row">
       <div class="col-md-1">
-        <div class="row">
-          <div class="col-md-12">
-            <%= link_to "#" do %>
-              <i class="fa fa-chevron-up fa-2x"></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <span class="question-points"><%= @question.points %></span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <%= link_to "#" do %>
-              <i class="fa fa-chevron-down fa-2x"></i>
-            <% end %>
-          </div>
-        </div>
+        <%= render partial: 'votes/form', locals: { votable_id: @question.id, votable_type: "Question", points: @question.points } %>
       </div>
       <div class="col-md-11">
         <div class="container-fluid">
@@ -71,25 +53,7 @@
 
     <div class="row">
       <div class="col-md-1">
-        <div class="row">
-          <div class="col-md-12">
-            <%= link_to "#" do %>
-              <i class="fa fa-chevron-up fa-2x"></i>
-            <% end %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <span class="answer-points">0</span>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <%= link_to "#" do %>
-              <i class="fa fa-chevron-down fa-2x"></i>
-            <% end %>
-          </div>
-        </div>
+        <%= render partial: 'votes/form', locals: { votable_id: answer.id, votable_type: "Answer", points: answer.points } %>
       </div>
       <!-- Display happy cat if this answer has been declared the best. -->
       <% if @question.best_answer == answer.id %>

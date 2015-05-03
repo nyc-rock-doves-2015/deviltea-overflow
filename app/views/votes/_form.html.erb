@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-12">
+
+  <%= form_for @vote, url: question_votes_path(@question) do |f| %>
+    <%= f.hidden_field :is_up, value: true %>
+    <%= f.hidden_field :votable_id, value: votable_id %>
+    <%= f.hidden_field :votable_type, value: votable_type %>
+    <%= link_to "#" do %>
+      <i class="fa fa-chevron-up fa-2x"></i>
+    <% end %>
+  <% end %>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <span class="<%= votable_type.downcase %>-points"><%= points %></span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+  <%= form_for @vote, url: question_votes_path(@question) do |f| %>
+    <%= f.hidden_field :is_up, value: false %>
+    <%= f.hidden_field :votable_id, value: votable_id %>
+    <%= f.hidden_field :votable_type, value: votable_type %>
+    <%= link_to "#" do %>
+      <i class="fa fa-chevron-down fa-2x"></i>
+    <% end %>
+  <% end %>
+  </div>
+</div>
