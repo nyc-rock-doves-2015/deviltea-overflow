@@ -2,3 +2,7 @@
 .new-comment-container {
   margin-top: 20px;
 }
+
+.comment-author {
+  color: #c11f0d;
+}
