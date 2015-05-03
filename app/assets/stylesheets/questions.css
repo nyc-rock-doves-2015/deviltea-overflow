@@ -1,5 +1,4 @@
 .question-show-container {
-  /*background: lightgreen;*/
   width: 800px;
   float: none;
   margin: 0 auto;
@@ -36,15 +35,14 @@
   width: 60%;
 }
 
-.question-all {
-  width: 80%;
+.questions-container {
+  width: 800px;
+  float: none;
   margin: 0 auto;
 }
 
-.question-stats {
-  margin: 5px auto;
-  border-bottom: solid gray 1px;
-  height: 70px;
+.questions-list {
+  margin-top: 20px;
 }
 
 .question-title {
@@ -53,15 +51,10 @@
 
 .stat-number {
   font-size: 1.5em;
-  text-align: center;
 }
 
-.stat-type {
-  text-align: center;
-}
-
-.question-demo {
-  float: right;
+.question-container {
+  width: 100%;
 }
 
 .question-author {

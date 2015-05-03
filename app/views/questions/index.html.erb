@@ -6,29 +6,45 @@
         <li <%= "class=active" if params[:sortby] == "trending" %>><a href="<%= questions_path(sortby: "trending") %>" data-toggle="tab" data-target="#">trending</a></li>
       </ul>
   </div>
+
+
+  <div class="questions-list container-fluid">
+    <% @questions.each do |question| %>
+    <div class="row">
+      <div class="col-md-1 text-center">
+        <p class="stat-number"><%= question.votes.count %> </p>
+        <p>votes</p>
+      </div>
+      <div class="col-md-1 text-center">
+        <p class="stat-number"><%= question.answers.count %> </p>
+        <p>answers</p>
+      </div>
+      <div class="col-md-1 text-center">
+        <p class="stat-number"><%= question.votes.count %> </p>
+        <p>views</p>
+      </div>
+      <div class="col-md-9">
+        <div class="container container-fluid question-container">
+          <div class="row">
+            <div class="col-md-12 question-title">
+              <%= link_to question.title, question_path(question) %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 text-right">
+              asked <%= time_ago_in_words(question.created_at) %> ago by <span class="question-author"><%= question.user.name %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row"><div class="col-md-12"><hr></div></div>
+
+    <% end %>
+  </div>
+
+
+
 </div>
 
-<div class="question-all-container">
-  <% @questions.each do |question| %>
-  <div class="col-lg-10 row question-stats">
-    <div class="col-md-3">
-      <div class="col-md-4">
-        <div class="stat-number"><%= question.votes.count %></div>
-        <div class="stat-type">votes</div>
-      </div>
-      <div class="col-md-4">
-        <div class="stat-number"><%= question.answers.count %></div>
-        <div class="stat-type">answers</div>
-      </div>
-      <div class="col-md-4">
-        <div class="stat-number"><%= question.votes.count %></div>
-        <div class="stat-type">views</div>
-      </div>
-    </div>
-    <div class="col-md-7">
-      <div class="col-lg-12 question-title"><%= link_to question.title, question_path(question) %></div>
-      <div class="question-demo">asked <%= time_ago_in_words(question.created_at) %> ago <span class="question-author"><%= question.user.name %></span></div>
-    </div>
-  </div>
-  <% end %>
-</div>
