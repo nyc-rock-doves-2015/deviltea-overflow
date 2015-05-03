@@ -7,7 +7,6 @@
       </ul>
   </div>
 
-
   <div class="questions-list container-fluid">
     <% @questions.each do |question| %>
     <div class="row">
@@ -20,7 +19,7 @@
         <p>answers</p>
       </div>
       <div class="col-md-1 text-center">
-        <p class="stat-number"><%= question.votes.count %> </p>
+        <p class="stat-number"><%= 0 %> </p>
         <p>views</p>
       </div>
       <div class="col-md-9">
@@ -40,11 +39,7 @@
       </div>
     </div>
     <div class="row"><div class="col-md-12"><hr></div></div>
-
     <% end %>
   </div>
-
-
-
 </div>
 
