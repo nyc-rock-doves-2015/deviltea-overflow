@@ -1,4 +1,5 @@
 <div class="new-question-container">
+  <h2 class="new-question-title">New Question</h2>
   <%= form_for @question do |f| %>
     <div class="form-group">
       <%= f.label "Title:" %>
@@ -7,7 +8,7 @@
 
     <div class="form-group">
       <%= f.label "Content:" %>
-      <%= f.text_area :content, class: "form-control question-text-area" %><br>
+      <%= f.text_area :content, rows: 10, class: "form-control question-text-area" %><br>
     </div>
     <%= f.submit "Create Question", class: "btn btn-default" %>
   <% end %>
