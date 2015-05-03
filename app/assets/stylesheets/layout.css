@@ -2,6 +2,9 @@
 .navbar-inverse .navbar-brand {
   font-weight: bold;
   font-size: 25px;
+}
+
+.navbar-inverse .navbar-nav > li.username > a {
   color: #222;
 }
 
