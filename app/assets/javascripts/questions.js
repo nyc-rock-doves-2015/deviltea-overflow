@@ -18,4 +18,8 @@ $(document).ready(function() {
 
   $('.fa-chevron-up').on('click', vote_post);
   $('.fa-chevron-down').on('click', vote_post);
+
+  $('.nav-tabs a').click(function (e) {
+    window.location = this.href;
+  });
 });

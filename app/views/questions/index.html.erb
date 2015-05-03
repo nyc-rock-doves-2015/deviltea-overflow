@@ -1,4 +1,14 @@
-<div class="question-all">
+<div class="questions-container">
+  <div class="questions-tabs">
+    <ul class="nav nav-tabs">
+        <li <%= "class=active" if params[:sortby].nil? || params[:sortby] == "most-recent" %>><a href="<%= questions_path %>" data-toggle="tab" data-target="#">most recent</a></li>
+        <li <%= "class=active" if params[:sortby] == "highest-voted" %>><a href="<%= questions_path(sortby: "highest-voted") %>" data-toggle="tab" data-target="google.com">highest voted</a></li>
+        <li <%= "class=active" if params[:sortby] == "trending" %>><a href="<%= questions_path(sortby: "trending") %>" data-toggle="tab" data-target="#">trending</a></li>
+      </ul>
+  </div>
+</div>
+
+<div class="question-all-container">
   <% @questions.each do |question| %>
   <div class="col-lg-10 row question-stats">
     <div class="col-md-3">
