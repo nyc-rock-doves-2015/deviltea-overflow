@@ -20,7 +20,8 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params[:comment][:user_id] = session[:user_id]
-    params.require(:comment).permit(:is_up, :user_id, :votable_id, :votable_type)
+    params[:answer][:user_id] = session[:user_id]
+    params[:answer][:question_id] = params[:question_id]
+    params.require(:answer).permit(:content, :user_id, :question_id)
   end
 end
