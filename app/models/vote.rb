@@ -8,6 +8,8 @@ class Vote < ActiveRecord::Base
   after_save :update_vote_count
 
   def tally
+    # I might think about a helper class called TallyAgent.new(votable_type,
+    # id).tally #=> "33"
     case votable_type
     when "Question"
       question = Question.find(votable_id)

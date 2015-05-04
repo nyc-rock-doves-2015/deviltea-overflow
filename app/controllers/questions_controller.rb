@@ -2,15 +2,15 @@ class QuestionsController < ApplicationController
   include SessionHelper
 
   def index
-    if params[:sortby] == "highest-voted"
+    @questions = if params[:sortby] == "highest-voted"
       p "highest votes"
-      @questions = Question.sort_by_highest_votes
+      Question.sort_by_highest_votes
     elsif params[:sortby] == "trending"
       p "trending"
-      @questions = Question.sort_by_trending
+      Question.sort_by_trending
     else
       p "most-recent"
-      @questions = Question.sort_by_most_recent
+      Question.sort_by_most_recent
     end
   end
 

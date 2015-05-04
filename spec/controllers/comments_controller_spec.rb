@@ -1,3 +1,4 @@
+# Generally, don't leave in commented out files
 # require 'rails_helper'
 
 # RSpec.describe Comment, type: :controller do

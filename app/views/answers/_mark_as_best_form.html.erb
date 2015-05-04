@@ -1,3 +1,4 @@
+<%# this would fix itself, the url, if you used standard route path %>
 <%= form_tag("/answers/#{answer.id}/best", method: "post") do %>
   <%= hidden_field_tag("question_id", answer.question.id) %>
   <%= hidden_field_tag("answer_id", answer.id) %>

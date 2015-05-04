@@ -23,6 +23,11 @@ class Question < ActiveRecord::Base
     Question.order(points: :desc)
   end
 
+  def alt_sort_answers
+    
+    (answers.to_a - Array(best_answer)).unshift(best_answer)
+  end
+
   def sort_answers
     question = self
     sorted_answers = question.answers.order(points: :desc)
